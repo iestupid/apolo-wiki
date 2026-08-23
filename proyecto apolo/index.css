@@ -1,0 +1,155 @@
+/* ==========================================================================
+   1. CONFIGURACIÓN UNIVERSAL Y BASE
+   ========================================================================== */
+* {
+    font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('hola.png');
+    background-attachment: fixed;
+    background-size: cover;
+    color: white; 
+}
+
+/* ==========================================================================
+   2. COMPONENTES Y DISEÑO DE TU WIKI
+   ========================================================================== */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    mix-blend-mode: screen; /* Vuelve invisible el fondo blanco */
+}
+
+img[src="apolo.png"] {
+    display: block;
+    text-align: center;
+    height: 300px;
+    background-size: cover;
+}
+
+#cabezal {
+    border: 9px solid rgb(186, 187, 181);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+p {
+    font-size: 150%;
+    padding: 10px;
+}
+
+nav {
+    font-size: 85%;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav li {
+    margin-bottom: 8px;
+}
+
+button {
+    background-color: white;
+    color: black;
+    border: 1px solid white;
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    text-align: left;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background-color: #e0e0e0;
+}
+
+/* ==========================================================================
+   3. EFECTO GLITCH VERDE EN TODA LA PANTALLA
+   ========================================================================== */
+#screen-glitch {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+    z-index: 9999; /* Se posiciona por encima de toda la web */
+    pointer-events: none; /* Permite hacer clics a través de él mientras es invisible */
+    display: none;
+}
+
+/* Estado Activo: Se dispara mediante JavaScript al presionar un botón */
+body.glitch-active #screen-glitch {
+    display: block;
+    animation: flash-estatica-verde 0.15s steps(2) infinite;
+}
+
+body.glitch-active #todo {
+    animation: sacudida-total 0.3s linear infinite;
+    filter: hue-rotate(90deg) saturate(3) contrast(1.5); /* Tinta la web e imágenes de verde */
+}
+
+/* Animación 1: Cortes horizontales y destellos verdes de fondo */
+@keyframes flash-estatica-verde {
+    0% {
+        background: rgba(0, 255, 102, 0.2);
+        box-shadow: inset 0 0 100px rgba(0, 255, 102, 0.5);
+        clip-path: inset(30% 0 60% 0);
+    }
+    50% {
+        background: rgba(0, 143, 57, 0.3);
+        clip-path: inset(70% 0 15% 0);
+    }
+    100% {
+        background: transparent;
+        clip-path: inset(10% 0 85% 0);
+    }
+}
+
+/* Animación 2: Vibración sísmica de la pantalla */
+@keyframes sacudida-total {
+    0% { transform: translate(0, 0) skewX(0deg); }
+    20% { transform: translate(-10px, 5px) skewX(-4deg); }
+    40% { transform: translate(10px, -5px) skewX(4deg); }
+    60% { transform: translate(-5px, -3px) skewX(2deg); }
+    80% { transform: translate(7px, 4px) skewX(-2deg); }
+    100% { transform: translate(0, 0) skewX(0deg); }
+}
+
+/* ==========================================================================
+   4. AJUSTE EXCLUSIVO PARA CELULARES
+   ========================================================================== */
+@media (max-width: 600px) {
+    * {
+        font-size: 16px; 
+    }
+    body {
+        padding: 15px;
+    }
+    nav li {
+        margin-bottom: 10px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+    }
+    nav a {
+        padding: 4px;
+        display: block;
+    }
+}

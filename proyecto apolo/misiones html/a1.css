@@ -1,0 +1,70 @@
+* {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+/* 1. CONFIGURACIÓN UNIVERSAL (Afecta a TODOS los elementos) */
+* {
+    font-family: "comic sans ms", "comic sans", cursive;
+    box-sizing: border-box; /* Evita que los elementos se desborden de la pantalla */
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Estilos base para que las imágenes no rompan el diseño */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 3. Estilos generales para limpiar tu menú de navegación */
+nav ul {
+    list-style: none; /* Quita los puntitos de la lista */
+}
+
+nav a {
+    text-decoration: none; /* Quita la línea de los enlaces */
+    color: #333;
+    display: block;
+}
+
+/* 4. AJUSTE EXCLUSIVO PARA CELULARES */
+@media (max-width: 600px) {
+
+    * {
+        /* Aumenta un poco el tamaño de letra en celulares para mejor lectura */
+        font-size: 16px; 
+    }
+    
+    /* Espaciado para que el contenido no pegue en los bordes de la pantalla */
+    body {
+        padding: 15px;
+    }
+    
+    /* Convierte tu nav en una lista vertical espaciada y cómoda para el dedo */
+    nav li {
+        margin-bottom: 10px;
+        background-color: #f4f4f4; /* Fondo gris claro opcional tipo tarjeta */
+        border-radius: 5px;
+    }
+    
+    nav a {
+        padding: 12px; /* Botones más grandes para presionar fácil */
+    }
+}
+body {
+    /* 1. Pon aquí la propiedad para la imagen de fondo usando url('tu_imagen.png') */
+    background-image: url('hola.png');
+
+    /* 2. Haz que el fondo se quede fijo al hacer scroll */
+    background-attachment: fixed;
+
+    /* 3. Asegura que la imagen cubra toda la pantalla sin deformarse */
+    background-size: cover;
+
+    /* 4. IMPORTANTE: Cambia el color del texto a blanco para que se lea en lo negro */
+    color: white; 
+}
+    img {
+  width: 20%;     /* Ocupa el 50% del ancho del contenedor */
+  height: auto;   /* Mantiene la proporción original */
+}
