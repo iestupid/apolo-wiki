@@ -34,7 +34,7 @@ jobs:
         uses: actions/jekyll-build-pages@v1
         with:
           # Se define la ruta de la carpeta de tu proyecto
-          source: ./proyecto-apolo
+          source: ./proyecto apolo
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
